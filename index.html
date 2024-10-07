@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Storymaker</title>
-    <!-- Linking external CSS file -->
+    <!-- Linking external CSS file for styling -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
             <p>Hit the buttons to conjure your own magical story adventure!</p>
         </header>
 
-        <!-- Buttons for selection of words -->
+        <!-- Section containing buttons for selecting words -->
         <section id="buttons">
             <button id="subjectBtn">Choose a Subject</button>
             <button id="verbBtn">Choose a Verb</button>
@@ -26,7 +26,7 @@
         </section>
 
         <section id="story-section">
-            <!-- Displaying generated story -->
+            <!-- Displaying the generated story -->
             <h2>Your Random Story:</h2>
             <div id="story">Your story will appear here.</div>
         </section>
@@ -36,9 +36,9 @@
         </footer>
     </div>
 
-    <!-- Linking external JS file -->
+    <!-- Linking external JS file for functionality -->
     <script>
-        // Array of words with Indian themes
+        // Arrays of words categorized into subjects, verbs, adjectives, objects, and places
         const subjects = [
             "A clever monkey",
             "A wise elephant",
@@ -75,19 +75,19 @@
             "in a vibrant marketplace"
         ];
 
-        // Stores selected words
+        // Variables to store the selected words
         let selectedSubject = "", selectedVerb = "", selectedAdjective = "", selectedObject = "", selectedPlace = "";
-        let textToSpeak = "";
+        let textToSpeak = ""; // Variable to hold the constructed story text
 
-        // Take a random word from an array
+        // Function to get a random word from an array
         function getRandomWord(arr) {
             return arr[Math.floor(Math.random() * arr.length)];
         }
 
-        // Button event listeners
+        // Event listeners for each button to select random words
         document.getElementById('subjectBtn').addEventListener('click', () => {
             selectedSubject = getRandomWord(subjects);
-            updateStory();
+            updateStory(); // Update the displayed story whenever a selection is made
         });
 
         document.getElementById('verbBtn').addEventListener('click', () => {
@@ -110,37 +110,43 @@
             updateStory();
         });
 
-        // Update the story
+        // Function to update the displayed story based on selected words
         function updateStory() {
+            // Use placeholder if no word has been selected
             const subject = selectedSubject || "___";
             const verb = selectedVerb || "___";
             const adjective = selectedAdjective || "___";
             const object = selectedObject || "___";
             const place = selectedPlace || "___";
 
+            // Construct the story text
             textToSpeak = `${subject} ${verb} a ${adjective} ${object} ${place}.`;
+            // Update the story display
             document.getElementById('story').textContent = textToSpeak;
         }
 
-        // Speak the story
+        // Event listener for the "Tell the Story" button
         document.getElementById('speakBtn').addEventListener('click', () => {
+            // Check if all parts of the story are selected
             if (textToSpeak.includes("___")) {
                 alert("Please complete the story by selecting all parts.");
             } else {
-                speakNow(textToSpeak);
+                speakNow(textToSpeak); // If complete, speak the story
             }
         });
 
-        // Story reset
+        // Event listener for the "Reset Story" button
         document.getElementById('resetBtn').addEventListener('click', () => {
+            // Reset selected words and the displayed story
             selectedSubject = selectedVerb = selectedAdjective = selectedObject = selectedPlace = "";
             textToSpeak = "";
             document.getElementById('story').textContent = "Your story will appear here.";
         });
 
+        // Function to speak the generated story
         function speakNow(text) {
-            const speech = new SpeechSynthesisUtterance(text);
-            window.speechSynthesis.speak(speech);
+            const speech = new SpeechSynthesisUtterance(text); // Create a speech utterance
+            window.speechSynthesis.speak(speech); // Use the speech synthesis API to speak the text
         }
     </script>
 </body>
