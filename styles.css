@@ -1,0 +1,75 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #B2EBF2; /* Bright Sky Blue */
+    color: #333; /* Default text color */
+    display: flex; /* Use Flexbox to center the container */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+}
+
+/* Centered Container */
+.container {
+    width: 90%; /* Responsive width */
+    max-width: 800px; /* Max width */
+    padding: 20px;
+    background-color: #FFFFFF; /* White */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    text-align: center; /* Center text in the container */
+}
+
+/* Header Styles */
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #6A1B9A; /* Deep Purple */
+}
+
+/* Button Styles */
+button {
+    background-color: #FF7043; /* Sunset Orange */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 12px 25px; /* More padding for buttons */
+    font-size: 1em;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+    margin: 10px; /* Margin between buttons */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for buttons */
+}
+
+button:hover {
+    background-color: #D84315; /* Dark Orange */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Story Section Styles */
+#story-section {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #FFF9C4; /* Light Lemon Yellow */
+    border-radius: 5px; /* Rounded corners */
+}
+
+#story {
+    font-size: 1.5em; /* Slightly larger font size for story */
+    color: #3E2723; /* Darker text color for the story */
+    min-height: 80px; /* Minimum height for story display */
+    margin-top: 10px; /* Space above the story text */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em; /* Smaller font for footer */
+    color: #1A237E; /* Midnight Blue */
+}
